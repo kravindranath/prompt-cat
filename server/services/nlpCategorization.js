@@ -6,13 +6,14 @@ function extractKeywords(prompt) {
   return [...doc.nouns().out("array"), ...doc.verbs().out("array")];
 }
 
-function categorizePrompt(prompt) {
-  const keywords = extractKeywords(prompt);
+function findBestCategory(keywords) {
   let bestCategory = "general";
   let maxMatches = 0;
 
-  for (const [category, words] of Object.entries(categories)) {
-    const matchCount = words.filter((word) => keywords.includes(word)).length;
+  for (const [category, data] of Object.entries(categories)) {
+    const matchCount = data.keywords.filter((word) =>
+      keywords.includes(word)
+    ).length;
 
     if (matchCount > maxMatches) {
       maxMatches = matchCount;
@@ -23,4 +24,4 @@ function categorizePrompt(prompt) {
   return bestCategory;
 }
 
-export { categorizePrompt };
+export { findBestCategory };

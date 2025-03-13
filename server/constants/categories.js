@@ -1,7 +1,24 @@
 export const categories = {
-  finance: ["banking", "investment", "loan", "money", "stocks", "trading"],
-  healthcare: ["doctor", "medicine", "hospital", "treatment", "patient"],
-  technology: ["software", "AI", "cloud", "coding", "programming", "tech"],
-  education: ["university", "school", "learning", "students", "course"],
-  general: [],
+  finance: {
+    keywords: ["banking", "investment", "loan", "money", "stocks", "trading"],
+    responseTemplate: "For financial matters, consider {variable} options.",
+  },
+  healthcare: {
+    keywords: ["doctor", "medicine", "hospital", "treatment", "patient"],
+    responseTemplate:
+      "Healthcare involves {variable} and proper medical guidance.",
+  },
+  technology: {
+    keywords: ["software", "AI", "cloud", "coding", "programming", "tech"],
+    responseTemplate: "Tech sector relies on {variable} for innovation.",
+  },
+  education: {
+    keywords: ["university", "school", "learning", "students", "course"],
+    responseTemplate:
+      "Educational institutions provide {variable} opportunities.",
+  },
+  general: {
+    keywords: [],
+    responseTemplate: "General topics require more context for {variable}.",
+  },
 };

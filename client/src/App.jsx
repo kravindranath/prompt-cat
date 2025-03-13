@@ -6,7 +6,7 @@ const App = function () {
 
   const handleChange = (event) => {
     try {
-      const parsedJson = JSON.parse(event.target.value);
+      const parsedJson = { prompt: event?.target?.value || "" };
       setJsonData(parsedJson);
       setError(null);
     } catch (error) {
