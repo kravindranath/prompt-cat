@@ -1,5 +1,5 @@
 {
-  "name": "prompt-mapping",
+  "name": "api-prompt-cat",
   "version": "1.0.0",
   "description": "map prompts to templates",
   "main": "index.js",

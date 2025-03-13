@@ -1,0 +1,26 @@
+{
+  "name": "spa-prompt-cat",
+  "version": "0.0.1",
+  "private": true,
+  "author": "kravindranath",
+  "license": "Apache-2.0",
+  "scripts": {
+    "dev": "vite",
+    "preview": "vite preview",
+    "dev:sit": "vite --mode SIT",
+    "dev:nft": "vite --mode NFT",
+    "dev:uat": "vite --mode UAT",
+    "build:sit": "vite build --mode SIT",
+    "build:nft": "vite build --mode NFT",
+    "build:uat": "vite build --mode UAT",
+    "build": "vite build --mode PRD"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.2.1"
+  }
+}
