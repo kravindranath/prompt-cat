@@ -1,6 +1,7 @@
 import { useState } from "react";
 const App = function () {
   const [jsonData, setJsonData] = useState({});
+  const [responseData, setResponseData] = useState({});
   const [error, setError] = useState(null);
   const [message, setMessage] = useState(null);
 
@@ -31,7 +32,8 @@ const App = function () {
       });
 
       const result = await response.json();
-      setMessage(`Success: ${JSON.stringify(result)}`);
+      setResponseData(result);
+      setMessage(`Success: response generated`);
     } catch (err) {
       setMessage("Error sending data. Make sure the server is running.");
     }
@@ -51,7 +53,7 @@ const App = function () {
 
           {/* Right: JSON Preview */}
           <pre className="w-full h-64 p-3 bg-white border rounded-lg overflow-auto">
-            {JSON.stringify(jsonData, null, 2)}
+            {JSON.stringify(responseData, null, 2)}
           </pre>
         </div>
         {/* -------- */}

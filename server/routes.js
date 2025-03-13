@@ -1,26 +1,29 @@
 import express from "express";
-import { findBestCategory } from "./services/nlpCategorization.js";
+import {
+  findBestCategory,
+  extractKeywords,
+} from "./services/nlpCategorization.js";
 
 const router = express.Router();
 
 // POST endpoint to capture user input
 router.post("/capture", (req, res) => {
-  const userInput = req.body;
-  const { prompt } = { ...userInput };
+  const data = req.body;
+  const { prompt } = { ...data };
 
-  if (!userInput || Object.keys(userInput).length === 0) {
+  if (!data || Object.keys(data).length === 0) {
     return res.status(400).json({ error: "Invalid or empty JSON input" });
   }
 
-  console.log("User Input Received:", prompt);
-
   //categorize prompt
-  const category = findBestCategory(prompt);
+  const inputKeywords = extractKeywords(prompt);
+  console.log("User Input Received:", prompt, inputKeywords);
+
+  const category = findBestCategory(inputKeywords);
 
   res.json({
-    message: "Input received successfully",
-    receivedData: userInput,
-    category,
+    status: 200,
+    data: { category, inputKeywords },
   });
 });
 
